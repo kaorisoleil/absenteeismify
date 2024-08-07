@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A43B28F2C5AB7870022EC62 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B28E2C5AB7870022EC62 /* HomeView.swift */; };
+		7A43B2912C5AB7CB0022EC62 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B2902C5AB7CB0022EC62 /* TrackerView.swift */; };
+		7A43B2932C5AB96E0022EC62 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B2922C5AB96E0022EC62 /* NotesView.swift */; };
+		7A43B2952C5AB9930022EC62 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B2942C5AB9930022EC62 /* ScheduleView.swift */; };
 		7A6106112C519628004F7AE9 /* absenteeismifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6106102C519628004F7AE9 /* absenteeismifyApp.swift */; };
 		7A6106132C519628004F7AE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6106122C519628004F7AE9 /* ContentView.swift */; };
 		7A6106152C519628004F7AE9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6106142C519628004F7AE9 /* Item.swift */; };
@@ -15,6 +19,9 @@
 		7A6106242C519629004F7AE9 /* absenteeismifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6106232C519629004F7AE9 /* absenteeismifyTests.swift */; };
 		7A61062E2C519629004F7AE9 /* absenteeismifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61062D2C519629004F7AE9 /* absenteeismifyUITests.swift */; };
 		7A6106302C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61062F2C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift */; };
+		7A761FEE2C5ABC0A0009FEED /* gclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FED2C5ABC0A0009FEED /* gclogo.png */; };
+		7A761FF22C5ABD530009FEED /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF12C5ABD530009FEED /* logo.png */; };
+		7A761FF52C6402680009FEED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A761FF42C6402680009FEED /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A43B28E2C5AB7870022EC62 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7A43B2902C5AB7CB0022EC62 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
+		7A43B2922C5AB96E0022EC62 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		7A43B2942C5AB9930022EC62 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		7A61060D2C519628004F7AE9 /* absenteeismify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = absenteeismify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6106102C519628004F7AE9 /* absenteeismifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = absenteeismifyApp.swift; sourceTree = "<group>"; };
 		7A6106122C519628004F7AE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +57,9 @@
 		7A6106292C519629004F7AE9 /* absenteeismifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = absenteeismifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A61062D2C519629004F7AE9 /* absenteeismifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = absenteeismifyUITests.swift; sourceTree = "<group>"; };
 		7A61062F2C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = absenteeismifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A761FED2C5ABC0A0009FEED /* gclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gclogo.png; path = ../../../../Downloads/gclogo.png; sourceTree = "<group>"; };
+		7A761FF12C5ABD530009FEED /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../Downloads/logo.png; sourceTree = "<group>"; };
+		7A761FF42C6402680009FEED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +110,17 @@
 		7A61060F2C519628004F7AE9 /* absenteeismify */ = {
 			isa = PBXGroup;
 			children = (
+				7A761FF32C64022D0009FEED /* Models */,
 				7A6106102C519628004F7AE9 /* absenteeismifyApp.swift */,
+				7A43B2902C5AB7CB0022EC62 /* TrackerView.swift */,
+				7A43B2942C5AB9930022EC62 /* ScheduleView.swift */,
 				7A6106122C519628004F7AE9 /* ContentView.swift */,
+				7A43B2922C5AB96E0022EC62 /* NotesView.swift */,
+				7A43B28E2C5AB7870022EC62 /* HomeView.swift */,
 				7A6106142C519628004F7AE9 /* Item.swift */,
 				7A6106162C519629004F7AE9 /* Assets.xcassets */,
+				7A761FF12C5ABD530009FEED /* logo.png */,
+				7A761FED2C5ABC0A0009FEED /* gclogo.png */,
 				7A6106182C519629004F7AE9 /* Preview Content */,
 			);
 			path = absenteeismify;
@@ -128,6 +149,14 @@
 				7A61062F2C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift */,
 			);
 			path = absenteeismifyUITests;
+			sourceTree = "<group>";
+		};
+		7A761FF32C64022D0009FEED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A761FF42C6402680009FEED /* LocationManager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A61061A2C519629004F7AE9 /* Preview Assets.xcassets in Resources */,
+				7A761FF22C5ABD530009FEED /* logo.png in Resources */,
+				7A761FEE2C5ABC0A0009FEED /* gclogo.png in Resources */,
 				7A6106172C519629004F7AE9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6106132C519628004F7AE9 /* ContentView.swift in Sources */,
+				7A43B28F2C5AB7870022EC62 /* HomeView.swift in Sources */,
+				7A43B2932C5AB96E0022EC62 /* NotesView.swift in Sources */,
+				7A43B2952C5AB9930022EC62 /* ScheduleView.swift in Sources */,
+				7A761FF52C6402680009FEED /* LocationManager.swift in Sources */,
 				7A6106152C519628004F7AE9 /* Item.swift in Sources */,
+				7A43B2912C5AB7CB0022EC62 /* TrackerView.swift in Sources */,
 				7A6106112C519628004F7AE9 /* absenteeismifyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +464,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"absenteeismify/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +493,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"absenteeismify/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
