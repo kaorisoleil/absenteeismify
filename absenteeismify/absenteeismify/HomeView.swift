@@ -15,18 +15,14 @@ struct Class: Identifiable {
 }
 
 struct HomeView: View {
-    @Binding var name: String
-    @Binding var grade: String
-    @Binding var school: String
-    @Binding var id: String
-
+    /*
     let classes = [
         Class(name: "BIOLOGY \n RM 211\n8:38 - 9:24 AM"),
         Class(name: "ALGEBRA 2 \n RM 234 \n 9:30 AM - 11:15 AM"),
         Class(name: "AP U.S. HISTORY \n RM 205 \n 11:20 AM - 1:05 PM")
 
     ]
-  /*
+ 
     struct ExerciseData: Identifiable, Equatable {
         var category: String
         var amount: Double
@@ -59,12 +55,12 @@ struct HomeView: View {
                            }
 
 
-                           Text("Hello , \(name)!")
+                           Text("Hello!")
                                .font(.custom("baskerville", size: 24))
                                .padding()
                        }
 
-                       NavigationLink(destination: TrackerView(name: $name , grade: $grade, school: $school, id: $id)) {
+                       NavigationLink(destination: TrackerView()) {
                            HStack{
                                Image(systemName: "checkmark.circle.fill")
                                    .foregroundColor(.green)
@@ -95,7 +91,7 @@ struct HomeView: View {
 
                            }
                            // notes from teacher button
-                             NavigationLink(destination: NotesView(name: $name , grade: $grade, school: $school, id: $id)) {
+                             NavigationLink(destination: NotesView()) {
                                  VStack
                                  {
                                      Image(systemName: "envelope.circle")
@@ -128,22 +124,23 @@ struct HomeView: View {
                                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 200)
                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             */
+                        
                            ScrollView {
                                VStack(alignment: .leading, spacing: 10) {
-                                   ForEach(classes){
-                                       classItem in
-                                       Text(classItem.name)
-                                           .font(.headline)
-                                           .padding()
-                                           .frame(maxWidth: .infinity, maxHeight: 100)
-                                           .background(Color(.systemGray6))
-                                           .cornerRadius(10)
-                                           .shadow(radius: 2)
-                                           .padding(.horizontal)
-                                           .multilineTextAlignment(.center)
+                               //    ForEach(classes){
+                                   //    classItem in
+                                    //   Text(classItem.name)
+                                         //  .font(.headline)
+                                          // .padding()
+                                          // .frame(maxWidth: .infinity, maxHeight: 100)
+                                         //  .background(Color(.systemGray6))
+                                         //  .cornerRadius(10)
+                                         //  .shadow(radius: 2)
+                                        //   .padding(.horizontal)
+                                        //   .multilineTextAlignment(.center)
                                    }
                                }
-                               .padding(.vertical)
+                            //   .padding(.vertical)
                            }
                            /*
                            .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height - 220)
@@ -192,6 +189,6 @@ struct HomeView: View {
         */
     }
 
-}
+
 
 

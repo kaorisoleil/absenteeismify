@@ -11,10 +11,6 @@ import Charts
 
 struct TrackerView : View {
 
-    @Binding var name: String
-    @Binding var grade: String
-    @Binding var school: String
-    @Binding var id: String
 
     struct ValuePerCategory {
         var category: String
@@ -27,7 +23,7 @@ struct TrackerView : View {
     ]
     var body: some View {
         VStack{
-            Text(name + "'s Attendance Tracker")
+            Text("Attendance Tracker")
                 .font(.custom("baskerville", size: 24))
                 .padding()
             ZStack {

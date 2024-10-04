@@ -9,44 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @State private var name:String = ""
-       @State private var grade:String = ""
-       @State private var school:String = ""
-      @State private var id: String = ""
-   
     var body: some View {
         
         NavigationView{
                    VStack
                    {
                        Spacer()
-                       Image(uiImage: UIImage(named: "logo") ?? UIImage(systemName: "logo")!)
+                       Image(uiImage: UIImage(named: "logo1") ?? UIImage(systemName: "logo1")!)
                            .resizable()
                            .aspectRatio(contentMode: .fit)
-                           .frame(maxWidth: 95, maxHeight: 95)
-                       TextField("Enter your name", text: $name)
-                           .padding()
-                           .font(.custom("baskerville", size: 16))
-                           .foregroundColor(.brown)
-                       TextField("Enter grade", text: $grade)
-                           .padding()
-                           .font(.custom("baskerville", size: 16))
-                           .foregroundColor(.brown)
-                       TextField("Enter school", text: $school)
-                           .padding()
-                           .font(.custom("baskerville", size: 16))
-                           .foregroundColor(.brown)
-                       TextField("Enter your student id", text: $id)
-                           .padding()
-                           .font(.custom("baskerville", size: 16))
-                           .foregroundColor(.brown)
-                       NavigationLink(destination:DetailView(name: $name, grade: $grade, school: $school, id: $id)){
-                           Text("LET'S GO!")
+                           .frame(maxWidth: 250, maxHeight: 250)
+                      
+                       NavigationLink(destination: DetailView()) {
+                           
+                           Text("Sign in with Google")
                                .padding()
                                .font(.custom("baskerville", size: 24))
+                               .bold()
                                .buttonStyle(.bordered)
-                               .foregroundColor(.red)
-                               .background(.brown)
+                               .foregroundColor(Color("lightblue"))
+                               .background(Color("darkblue"))
                                .cornerRadius(10)
                        }
                        Spacer()
@@ -61,30 +43,25 @@ struct ContentView: View {
     }
 }
 struct DetailView: View {
-    @Binding var name: String
-    @Binding var grade: String
-    @Binding var school: String
-    @Binding var id: String
-    @State private var pressed: Bool = false
     var body: some View {
 
         TabView{
-            HomeView(name: $name, grade: $grade, school:$school, id: $id)
+            HomeView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
             }
-            ScheduleView(name: $name, grade: $grade, school: $school, id: $id)
+            ScheduleView()
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle")
                     Text("Schedule")
                 }
-            NotesView(name: $name, grade: $grade, school: $school, id: $id)
+            NotesView()
                 .tabItem {
                     Image(systemName: "rectangle.and.pencil.and.ellipsis")
                     Text("Notes From Teacher")
                 }
-            TrackerView(name: $name, grade: $grade, school: $school, id: $id)
+            TrackerView()
                 .tabItem {
                     Image(systemName: "calendar.circle")
                     Text("Attendance Tracker")

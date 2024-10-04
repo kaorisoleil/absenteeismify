@@ -20,8 +20,9 @@
 		7A61062E2C519629004F7AE9 /* absenteeismifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61062D2C519629004F7AE9 /* absenteeismifyUITests.swift */; };
 		7A6106302C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A61062F2C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift */; };
 		7A761FEE2C5ABC0A0009FEED /* gclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FED2C5ABC0A0009FEED /* gclogo.png */; };
-		7A761FF22C5ABD530009FEED /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF12C5ABD530009FEED /* logo.png */; };
 		7A761FF52C6402680009FEED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A761FF42C6402680009FEED /* LocationManager.swift */; };
+		7A761FF72CB053420009FEED /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF62CB053420009FEED /* logo1.png */; };
+		7A761FF92CB058EC0009FEED /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF82CB058EC0009FEED /* google.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,9 @@
 		7A61062D2C519629004F7AE9 /* absenteeismifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = absenteeismifyUITests.swift; sourceTree = "<group>"; };
 		7A61062F2C519629004F7AE9 /* absenteeismifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = absenteeismifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A761FED2C5ABC0A0009FEED /* gclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gclogo.png; path = ../../../../Downloads/gclogo.png; sourceTree = "<group>"; };
-		7A761FF12C5ABD530009FEED /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../Downloads/logo.png; sourceTree = "<group>"; };
 		7A761FF42C6402680009FEED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7A761FF62CB053420009FEED /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
+		7A761FF82CB058EC0009FEED /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +121,9 @@
 				7A43B28E2C5AB7870022EC62 /* HomeView.swift */,
 				7A6106142C519628004F7AE9 /* Item.swift */,
 				7A6106162C519629004F7AE9 /* Assets.xcassets */,
-				7A761FF12C5ABD530009FEED /* logo.png */,
 				7A761FED2C5ABC0A0009FEED /* gclogo.png */,
+				7A761FF62CB053420009FEED /* logo1.png */,
+				7A761FF82CB058EC0009FEED /* google.png */,
 				7A6106182C519629004F7AE9 /* Preview Content */,
 			);
 			path = absenteeismify;
@@ -263,8 +266,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A761FF72CB053420009FEED /* logo1.png in Resources */,
 				7A61061A2C519629004F7AE9 /* Preview Assets.xcassets in Resources */,
-				7A761FF22C5ABD530009FEED /* logo.png in Resources */,
+				7A761FF92CB058EC0009FEED /* google.png in Resources */,
 				7A761FEE2C5ABC0A0009FEED /* gclogo.png in Resources */,
 				7A6106172C519629004F7AE9 /* Assets.xcassets in Resources */,
 			);

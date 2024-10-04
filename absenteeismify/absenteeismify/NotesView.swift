@@ -10,10 +10,6 @@ import SwiftUI
 import CoreLocationUI
 struct NotesView : View {
 
-    @Binding var name: String
-    @Binding var grade: String
-    @Binding var school: String
-    @Binding var id: String
     @ObservedObject var locationManager = LocationManager()
     var body: some View {
         VStack{
