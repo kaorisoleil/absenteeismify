@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCysn7lz-BRUVCb_i6y2B2FC9hFB6GWaZw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>417681635948</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bgch.absenteeismify</string>
+	<key>PROJECT_ID</key>
+	<string>absentease-23566</string>
+	<key>STORAGE_BUCKET</key>
+	<string>absentease-23566.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:417681635948:ios:edf6f5febf9fb08cfb3649</string>
+</dict>
+</plist>
