@@ -23,6 +23,8 @@
 		7A761FF52C6402680009FEED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A761FF42C6402680009FEED /* LocationManager.swift */; };
 		7A761FF72CB053420009FEED /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF62CB053420009FEED /* logo1.png */; };
 		7A761FF92CB058EC0009FEED /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A761FF82CB058EC0009FEED /* google.png */; };
+		7AA8DE742CB2E8D10029CCDD /* AllModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA8DE732CB2E8D10029CCDD /* AllModels.swift */; };
+		7AA8DE772CB2EB590029CCDD /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA8DE762CB2EB590029CCDD /* ScheduleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		7A761FF42C6402680009FEED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7A761FF62CB053420009FEED /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
 		7A761FF82CB058EC0009FEED /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
+		7AA8DE732CB2E8D10029CCDD /* AllModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModels.swift; sourceTree = "<group>"; };
+		7AA8DE762CB2EB590029CCDD /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		7A61060F2C519628004F7AE9 /* absenteeismify */ = {
 			isa = PBXGroup;
 			children = (
+				7AA8DE752CB2EB3D0029CCDD /* ViewModels */,
 				7A761FF32C64022D0009FEED /* Models */,
 				7A6106102C519628004F7AE9 /* absenteeismifyApp.swift */,
 				7A43B2902C5AB7CB0022EC62 /* TrackerView.swift */,
@@ -157,9 +162,18 @@
 		7A761FF32C64022D0009FEED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7A761FF42C6402680009FEED /* LocationManager.swift */,
+				7AA8DE732CB2E8D10029CCDD /* AllModels.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7AA8DE752CB2EB3D0029CCDD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7AA8DE762CB2EB590029CCDD /* ScheduleViewModel.swift */,
+				7A761FF42C6402680009FEED /* LocationManager.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,10 +312,12 @@
 				7A6106132C519628004F7AE9 /* ContentView.swift in Sources */,
 				7A43B28F2C5AB7870022EC62 /* HomeView.swift in Sources */,
 				7A43B2932C5AB96E0022EC62 /* NotesView.swift in Sources */,
+				7AA8DE772CB2EB590029CCDD /* ScheduleViewModel.swift in Sources */,
 				7A43B2952C5AB9930022EC62 /* ScheduleView.swift in Sources */,
 				7A761FF52C6402680009FEED /* LocationManager.swift in Sources */,
 				7A6106152C519628004F7AE9 /* Item.swift in Sources */,
 				7A43B2912C5AB7CB0022EC62 /* TrackerView.swift in Sources */,
+				7AA8DE742CB2E8D10029CCDD /* AllModels.swift in Sources */,
 				7A6106112C519628004F7AE9 /* absenteeismifyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

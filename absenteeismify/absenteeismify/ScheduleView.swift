@@ -9,56 +9,59 @@ import Foundation
 import SwiftUI
 
 // Model for a class object
-struct ClassInfo: Identifiable {
-    let id = UUID()         // Unique identifier
-    var name: String  
-    var teacher: String// Class name
-    var emailbody: String
-}
+
 
 struct ScheduleView: View {
-    // Array of class objects
-    @State private var classes: [ClassInfo] = [
-        ClassInfo(name: "AP Statistics", teacher: "Mr. Zopp", emailbody: "Hello teacher I cannot come in today because my sister was sick"),
-        ClassInfo(name: "AP U.S. History", teacher: "Mr. Smith", emailbody: "Hello teacher I cannot come in today because I was sick"),
-        ClassInfo(name: "Physics", teacher: "Mr. Mesa", emailbody: "Hello teacher I cannot come in today because I was sick")
-    ]
-    
+    @StateObject private var scheduleViewModel = ScheduleViewModel()
+    @State var emailBody = " "
     var body: some View {
-        
-        
         ScrollView {  // Add ScrollView to enable scrolling
+           // Text("\(scheduleViewModel.todayCourses)")
+            
+            
             VStack(alignment: .leading, spacing: 10) {
-                ForEach(classes) { classItem in
+                ForEach(scheduleViewModel.todayCourses) { course in
                     DisclosureGroup {
                         // Inside the expanded section
                         VStack(alignment: .leading) {
-                            Text("Dear Teacher, I was absent...") // Placeholder for email
+            //Turn this into a textfield
+                            TextField("Enter your name" , text: $emailBody)// Placeholder for email
                                 .padding()
                             // Dummy "Send Email" button
                             Button(action: {
                                 // Dummy action for now
-                                print("Email sent for \(classItem.name)")
+                                print("Email sent for \(course.name)")
                             }) {
                                 Text("Send Email")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("lightblue"))
                                     .padding()
-                                    .background(Color.blue)
+                                    .bold()
+                                    .background(Color("darkblue"))
                                     .cornerRadius(8)
                             }
+                        }.onAppear{
+                            emailBody = "Dear \(course.teacher), I missed class today because I was sick. How can I make up the work? I am happy to stay afterschool next week to make this work."
+                               
                         }
                         .padding()
+                        .foregroundColor(Color("darkblue"))
                     } label: {
-                        Text(classItem.name)  // Class name as the label
-                            .font(.headline)
+                        Text(course.name)  // Class name as the label
+                            .font(.custom("baskerville", size: 27))
+                            .bold()
+                            .foregroundColor(Color("darkblue"))
                             .padding()
                     }
                     .padding()
-                    .background(Color("darkblue")) // Background for each DisclosureGroup
+                    .background(Color("lightblue")) // Background for each DisclosureGroup
                     .cornerRadius(10)
                 }
             }
             .padding()
+        
+        } .onAppear{
+            scheduleViewModel.setUpDummy()
+            scheduleViewModel.fetchCourses()
         }
     }
 }
