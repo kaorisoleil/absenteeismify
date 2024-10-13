@@ -20,7 +20,7 @@ struct ContentView: View {
                            .aspectRatio(contentMode: .fit)
                            .frame(maxWidth: 250, maxHeight: 250)
                       
-                       NavigationLink(destination: DetailView()) {
+                       NavigationLink(destination: PresenceCheckView()) {
                            
                            Text("Sign in with Google")
                                .padding()
@@ -42,6 +42,52 @@ struct ContentView: View {
         
     }
 }
+
+struct PresenceCheckView: View {
+    @State private var isAbsent = false
+    @State private var showingDetailView = false  // To navigate to the detail view after presence check
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Are you here today?")
+                .font(.title)
+                .bold()
+                .padding()
+
+            Button(action: {
+                isAbsent = true
+                showingDetailView = true
+            }) {
+                Text("I am Absent")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.red)
+                    .cornerRadius(10)
+            }
+
+            Button(action: {
+                isAbsent = false
+                showingDetailView = true
+            }) {
+                Text("I am Present")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.green)
+                    .cornerRadius(10)
+            }
+        }
+        .fullScreenCover(isPresented: $showingDetailView) {
+            if isAbsent {
+                ScheduleView()  // If absent, go to ScheduleView to generate emails
+            } else {
+                DetailView()    // If present, go to the main tab view (DetailView)
+            }
+        }
+        .padding()
+    }
+}
+
+
 struct DetailView: View {
     var body: some View {
 

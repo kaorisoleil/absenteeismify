@@ -25,8 +25,16 @@ struct ScheduleView: View {
                         // Inside the expanded section
                         VStack(alignment: .leading) {
             //Turn this into a textfield
-                            TextField("Enter your name" , text: $emailBody)// Placeholder for email
-                                .padding()
+                            ScrollView {
+                                TextEditor(text: $emailBody)
+                                                                .frame(height: 100)  // Set a fixed height
+                                                                .padding()
+                                                                .overlay(
+                                                                    RoundedRectangle(cornerRadius: 8)
+                                                                        .stroke(Color("darkblue"), lineWidth: 2)  // Add a gray border
+                                                                )
+                            }
+                           
                             // Dummy "Send Email" button
                             Button(action: {
                                 // Dummy action for now
@@ -47,13 +55,13 @@ struct ScheduleView: View {
                         .foregroundColor(Color("darkblue"))
                     } label: {
                         Text(course.name)  // Class name as the label
-                            .font(.custom("baskerville", size: 27))
+                            .font(.custom("helvetica", size: 27))
                             .bold()
                             .foregroundColor(Color("darkblue"))
                             .padding()
                     }
                     .padding()
-                    .background(Color("lightblue")) // Background for each DisclosureGroup
+                  .background(Color("lightblue")) // Background for each DisclosureGroup
                     .cornerRadius(10)
                 }
             }
