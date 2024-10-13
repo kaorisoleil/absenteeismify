@@ -7,6 +7,10 @@
 
 import SwiftUI
 import SwiftData
+import GoogleSignIn
+import FirebaseAuth
+import FirebaseCore
+
 
 struct ContentView: View {
     var body: some View {
@@ -22,14 +26,16 @@ struct ContentView: View {
                       
                        NavigationLink(destination: PresenceCheckView()) {
                            
-                           Text("Sign in with Google")
-                               .padding()
-                               .font(.custom("baskerville", size: 24))
-                               .bold()
-                               .buttonStyle(.bordered)
-                               .foregroundColor(Color("lightblue"))
-                               .background(Color("darkblue"))
-                               .cornerRadius(10)
+                           Button(action: { signInWithGoogle() }) 
+                           {
+                               HStack { Image(systemName: "person.fill")
+                                   Text("Sign in with Google") .font(.headline)
+                               }
+                               .frame(width: 280, height: 50)
+                               .background(Color.blue)
+                               .foregroundColor(.white)
+                               .cornerRadius(10) }
+                         
                        }
                        Spacer()
 
@@ -40,6 +46,42 @@ struct ContentView: View {
         
         
         
+    }
+    func signInWithGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else { print("Unable to get the root view controller."); 
+            return }
+        
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
+          guard error == nil else {
+            // ...
+              print(error)
+              return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+            // ...
+              return
+          }
+            
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error { print("Firebase sign-in error: \(error.localizedDescription)") }
+                else { print("User is signed in with Firebase") } }
+            
+          // ...
+        }
     }
 }
 
