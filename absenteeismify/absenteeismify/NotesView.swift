@@ -8,11 +8,28 @@
 import Foundation
 import SwiftUI
 import CoreLocationUI
+
+
 struct NotesView : View {
 
     @ObservedObject var locationManager = LocationManager()
+    @EnvironmentObject var authViewModel : AuthViewModel
     var body: some View {
         VStack{
+            
+            Button(action: { authViewModel.signOut() }) {
+    
+                HStack { 
+                    Image(systemName: "person.fill")
+                    Text("Sign out") .font(.headline)
+                }
+                .frame(width: 280, height: 50)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10) }
+          
+            }
+        /*
             Text("\(String(format: "%.0f", locationManager.degrees))º".uppercased())
                 .font(.largeTitle)
             if let myLocation = locationManager.location {
@@ -24,7 +41,8 @@ struct NotesView : View {
                 .labelStyle(.iconOnly)
                 .cornerRadius(20)
             }
+         */
         }
        
     }
-}
+

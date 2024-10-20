@@ -59,5 +59,51 @@ class ScheduleViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
     
+    func sendEmail(token: String, emailbody: String, course: Course, useremail: String) {
+        let url = URL(string: "https://www.googleapis.com/gmail/v1/users/me/messages/send")!
+        
+    // Create raw email content
+    let rawMessage = """
+    From: \(useremail)
+    To: \(course.teacher_email)
+    Subject: Absence, Catchup Request
+        \(emailbody)
+
+    """.data(using: .utf8)!.base64EncodedString()
+    
+    let parameters = ["raw": rawMessage]
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    do {
+        let data = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        request.httpBody = data
+    } catch {
+        print("Error serializing JSON: \(error.localizedDescription)")
+        return
+    }
+    
+    // Send the email
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print("Error sending email: \(error.localizedDescription)")
+        } else if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+            print("Email sent successfully!")
+        } else {
+            print("Failed to send email. Status code: \(response)")
+        }
+    }
+    
+    task.resume()
+            
+
+    }
+    
+    
+    
+    
 }
 

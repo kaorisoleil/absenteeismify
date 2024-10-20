@@ -10,11 +10,16 @@ import SwiftData
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseAppCheck
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
+
+      let providerFactory = AppCheckDebugProviderFactory()
+      AppCheck.setAppCheckProviderFactory(providerFactory)
+
 
     return true
   }
@@ -28,9 +33,11 @@ func application(_ app: UIApplication,
 @main
 struct absenteeismifyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var authViewModel = AuthViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authViewModel)
         }
     }
 }

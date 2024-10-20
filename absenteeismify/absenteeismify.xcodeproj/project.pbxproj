@@ -38,6 +38,7 @@
 		7AA8DE912CB892BA0029CCDD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7AA8DE902CB892BA0029CCDD /* GoogleSignIn */; };
 		7AA8DE932CB892BA0029CCDD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7AA8DE922CB892BA0029CCDD /* GoogleSignInSwift */; };
 		7AA8DE992CBC2CE80029CCDD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA8DE982CBC2CE80029CCDD /* GoogleService-Info.plist */; };
+		7AA8DE9C2CBD4FEA0029CCDD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA8DE9B2CBD4FEA0029CCDD /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		7AA8DE762CB2EB590029CCDD /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		7AA8DE982CBC2CE80029CCDD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AA8DE9A2CBC2E0E0029CCDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7AA8DE9B2CBD4FEA0029CCDD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,13 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		168ECBB672AF6BEBE6264CF2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7A6106042C519628004F7AE9 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +129,6 @@
 				7A6106222C519629004F7AE9 /* absenteeismifyTests */,
 				7A61062C2C519629004F7AE9 /* absenteeismifyUITests */,
 				7A61060E2C519628004F7AE9 /* Products */,
-				168ECBB672AF6BEBE6264CF2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA8DE762CB2EB590029CCDD /* ScheduleViewModel.swift */,
+				7AA8DE9B2CBD4FEA0029CCDD /* AuthViewModel.swift */,
 				7A761FF42C6402680009FEED /* LocationManager.swift */,
 			);
 			path = ViewModels;
@@ -372,6 +367,7 @@
 				7A43B2952C5AB9930022EC62 /* ScheduleView.swift in Sources */,
 				7A761FF52C6402680009FEED /* LocationManager.swift in Sources */,
 				7A6106152C519628004F7AE9 /* Item.swift in Sources */,
+				7AA8DE9C2CBD4FEA0029CCDD /* AuthViewModel.swift in Sources */,
 				7A43B2912C5AB7CB0022EC62 /* TrackerView.swift in Sources */,
 				7AA8DE742CB2E8D10029CCDD /* AllModels.swift in Sources */,
 				7A6106112C519628004F7AE9 /* absenteeismifyApp.swift in Sources */,
@@ -538,6 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"absenteeismify/Preview Content\"";
+				DEVELOPMENT_TEAM = 3566MT4K99;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = absenteeismify/Info.plist;
@@ -568,6 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"absenteeismify/Preview Content\"";
+				DEVELOPMENT_TEAM = 3566MT4K99;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = absenteeismify/Info.plist;

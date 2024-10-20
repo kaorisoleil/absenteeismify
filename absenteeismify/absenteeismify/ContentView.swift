@@ -12,77 +12,52 @@ import FirebaseAuth
 import FirebaseCore
 
 
+
 struct ContentView: View {
+    @EnvironmentObject var authViewModel : AuthViewModel
+    
     var body: some View {
         
         NavigationView{
-                   VStack
-                   {
-                       Spacer()
-                       Image(uiImage: UIImage(named: "logo1") ?? UIImage(systemName: "logo1")!)
-                           .resizable()
-                           .aspectRatio(contentMode: .fit)
-                           .frame(maxWidth: 250, maxHeight: 250)
+            if !authViewModel.isSignedIn{
+                VStack
+                {
+                    Spacer()
+                    Image(uiImage: UIImage(named: "logo1") ?? UIImage(systemName: "logo1")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 250, maxHeight: 250)
+                   
+                    NavigationLink(destination: PresenceCheckView()) {
+                        
+                        Button(action: { authViewModel.signInWithGoogle() })
+                        {
+                            HStack { Image(systemName: "person.fill")
+                                Text("Sign in with Google") .font(.headline)
+                            }
+                            .frame(width: 280, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10) }
                       
-                       NavigationLink(destination: PresenceCheckView()) {
-                           
-                           Button(action: { signInWithGoogle() }) 
-                           {
-                               HStack { Image(systemName: "person.fill")
-                                   Text("Sign in with Google") .font(.headline)
-                               }
-                               .frame(width: 280, height: 50)
-                               .background(Color.blue)
-                               .foregroundColor(.white)
-                               .cornerRadius(10) }
-                         
-                       }
-                       Spacer()
+                    }
+                    Spacer()
 
-                   }
-                   .padding()
+                }
+                .padding()
+            }
+            else
+            {
+                PresenceCheckView()
+            }
+                  
                }
         
         
         
         
     }
-    func signInWithGoogle() {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootViewController = windowScene.windows.first?.rootViewController else { print("Unable to get the root view controller."); 
-            return }
-        
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { result, error in
-          guard error == nil else {
-            // ...
-              print(error)
-              return
-          }
-
-          guard let user = result?.user,
-            let idToken = user.idToken?.tokenString
-          else {
-            // ...
-              return
-          }
-            
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: user.accessToken.tokenString)
-            Auth.auth().signIn(with: credential) { authResult, error in
-                if let error = error { print("Firebase sign-in error: \(error.localizedDescription)") }
-                else { print("User is signed in with Firebase") } }
-            
-          // ...
-        }
-    }
+    
 }
 
 struct PresenceCheckView: View {

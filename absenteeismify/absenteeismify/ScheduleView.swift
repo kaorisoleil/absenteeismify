@@ -13,7 +13,9 @@ import SwiftUI
 
 struct ScheduleView: View {
     @StateObject private var scheduleViewModel = ScheduleViewModel()
+    @EnvironmentObject var authViewModel : AuthViewModel
     @State var emailBody = " "
+   
     var body: some View {
         ScrollView {  // Add ScrollView to enable scrolling
            // Text("\(scheduleViewModel.todayCourses)")
@@ -38,7 +40,8 @@ struct ScheduleView: View {
                             // Dummy "Send Email" button
                             Button(action: {
                                 // Dummy action for now
-                                print("Email sent for \(course.name)")
+                                scheduleViewModel.sendEmail(token: authViewModel.accessToken, emailbody: emailBody, course: course, useremail: authViewModel.userEmail)
+                                
                             }) {
                                 Text("Send Email")
                                     .foregroundColor(Color("lightblue"))
