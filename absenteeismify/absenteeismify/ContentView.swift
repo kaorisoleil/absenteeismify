@@ -15,7 +15,10 @@ import FirebaseCore
 
 struct ContentView: View {
     @EnvironmentObject var authViewModel : AuthViewModel
-    
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var school: String = ""
+
     var body: some View {
         
         NavigationView{
@@ -30,7 +33,21 @@ struct ContentView: View {
                    
                     NavigationLink(destination: PresenceCheckView()) {
                         
-                        Button(action: { authViewModel.signInWithGoogle() })
+                        TextField("First Name", text: $firstName)
+                                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                                       .padding()
+                                   TextField("Last Name", text: $lastName)
+                                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                                       .padding()
+                                   
+                                   TextField("School", text: $school)
+                                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                                       .padding()
+                       
+                        Button(action: {
+                            saveUserInfo()
+                            authViewModel.signInWithGoogle()
+                        })
                         {
                             HStack { Image(systemName: "person.fill")
                                 Text("Sign in with Google") .font(.headline)
@@ -57,6 +74,15 @@ struct ContentView: View {
         
         
     }
+    func saveUserInfo() {
+            let student = Student(id: UUID().uuidString, first_name: firstName, last_name: lastName, school: school, schedule: [[], [], [], [],[] ])
+            
+            if let encodedData = try? JSONEncoder().encode(student) {
+                UserDefaults.standard.set(encodedData, forKey: "studentData")
+                print("User info saved!")
+            }
+        }
+
     
 }
 
@@ -128,6 +154,11 @@ struct DetailView: View {
                 .tabItem {
                     Image(systemName: "calendar.circle")
                     Text("Attendance Tracker")
+                }
+            ScheduleEditView()
+                .tabItem {
+                    Image(systemName: "calendar.circle")
+                    Text("Add Course")
                 }
         }
         .padding()

@@ -71,7 +71,7 @@ struct ScheduleView: View {
             .padding()
         
         } .onAppear{
-            scheduleViewModel.setUpDummy()
+            scheduleViewModel.setUp()
             scheduleViewModel.fetchCourses()
         }
     }
