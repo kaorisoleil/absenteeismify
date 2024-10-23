@@ -14,10 +14,13 @@ import FirebaseCore
 
 
 struct ContentView: View {
+    
     @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var scheduleViewModel : ScheduleViewModel
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var school: String = ""
+    
 
     var body: some View {
         
@@ -31,16 +34,16 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 250, maxHeight: 250)
                    
-                    NavigationLink(destination: PresenceCheckView()) {
+                  
                         
                         TextField("First Name", text: $firstName)
                                        .textFieldStyle(RoundedBorderTextFieldStyle())
                                        .padding()
-                                   TextField("Last Name", text: $lastName)
+                        TextField("Last Name", text: $lastName)
                                        .textFieldStyle(RoundedBorderTextFieldStyle())
                                        .padding()
                                    
-                                   TextField("School", text: $school)
+                        TextField("School", text: $school)
                                        .textFieldStyle(RoundedBorderTextFieldStyle())
                                        .padding()
                        
@@ -55,9 +58,10 @@ struct ContentView: View {
                             .frame(width: 280, height: 50)
                             .background(Color.blue)
                             .foregroundColor(.white)
-                            .cornerRadius(10) }
+                            .cornerRadius(10)
+                            }
                       
-                    }
+                    
                     Spacer()
 
                 }
@@ -135,33 +139,34 @@ struct DetailView: View {
     var body: some View {
 
         TabView{
-            HomeView()
+            ScheduleEditView()
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Home")
+                    Text("Add Course")
             }
             ScheduleView()
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle")
                     Text("Schedule")
                 }
-            NotesView()
-                .tabItem {
-                    Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                    Text("Notes From Teacher")
-                }
-            TrackerView()
+            HomeView()
                 .tabItem {
                     Image(systemName: "calendar.circle")
-                    Text("Attendance Tracker")
+                    Text("Home")
                 }
-            ScheduleEditView()
+            MapView()
                 .tabItem {
                     Image(systemName: "calendar.circle")
-                    Text("Add Course")
+                    Text("Resources")
+                }
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "calendar.circle")
+                    Text("Profile")
                 }
         }
         .padding()
+        
     }
 
 }

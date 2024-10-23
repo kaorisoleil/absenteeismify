@@ -34,10 +34,12 @@ func application(_ app: UIApplication,
 struct absenteeismifyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var authViewModel = AuthViewModel()
+    @StateObject var scheduleViewModel = ScheduleViewModel() 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(authViewModel)
+                 .environmentObject(scheduleViewModel)
         }
     }
 }

@@ -40,7 +40,10 @@ struct ScheduleView: View {
                             // Dummy "Send Email" button
                             Button(action: {
                                 // Dummy action for now
+                                
+                                print("ACCESS TOKEN FROM VIEW: ", authViewModel.accessToken)
                                 scheduleViewModel.sendEmail(token: authViewModel.accessToken, emailbody: emailBody, course: course, useremail: authViewModel.userEmail)
+                                
                                 
                             }) {
                                 Text("Send Email")
@@ -71,6 +74,15 @@ struct ScheduleView: View {
             .padding()
         
         } .onAppear{
+            if let savedAccessToken = UserDefaults.standard.string(forKey: "accessToken")
+            {
+                print("Access Token: \(savedAccessToken)")
+                authViewModel.accessToken = savedAccessToken
+            }
+            else {
+                print("No access token found")
+            }
+           
             scheduleViewModel.setUp()
             scheduleViewModel.fetchCourses()
         }

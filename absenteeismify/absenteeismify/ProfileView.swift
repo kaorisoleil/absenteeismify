@@ -10,13 +10,32 @@ import SwiftUI
 import CoreLocationUI
 
 
-struct NotesView : View {
+struct ProfileView : View {
 
     @ObservedObject var locationManager = LocationManager()
     @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var scheduleViewModel: ScheduleViewModel
+    
     var body: some View {
         VStack{
+            ZStack
+            {
+                Circle()
+                    .frame(maxWidth: 100, maxHeight: 100)
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 100, maxHeight: 100)
+                    .background(Color("lightblue"))
+                    .foregroundColor(Color("darkblue"))
+            }
             
+            Text("\(scheduleViewModel.student.first_name)  \(scheduleViewModel.student.last_name)")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .bold()
+            Text("\(scheduleViewModel.student.school)")
+            
+            //
             Button(action: { authViewModel.signOut() }) {
     
                 HStack { 
@@ -24,11 +43,12 @@ struct NotesView : View {
                     Text("Sign out") .font(.headline)
                 }
                 .frame(width: 280, height: 50)
-                .background(Color.blue)
-                .foregroundColor(.white)
+                .background(Color("darkblue"))
+                .foregroundColor(Color("lightblue"))
                 .cornerRadius(10) }
-          
+          //
             }
+        .background(Color("lightb2"))
         /*
             Text("\(String(format: "%.0f", locationManager.degrees))º".uppercased())
                 .font(.largeTitle)

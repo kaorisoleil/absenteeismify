@@ -51,8 +51,8 @@ class AuthViewModel: ObservableObject {
               return
           }
             self.accessToken = result?.user.accessToken.tokenString ?? ""
-
-            print(self.accessToken)
+            UserDefaults.standard.set(self.accessToken, forKey: "accessToken")
+            print("ACCESS TOKEN:", self.accessToken)
             
             
 
@@ -105,11 +105,14 @@ class AuthViewModel: ObservableObject {
     // Sign out function
     func signOut() {
         do {
+            UserDefaults.standard.removeObject(forKey: "accessToken")
             try Auth.auth().signOut()
             self.isSignedIn = false
             print(isSignedIn)
+            
         } catch {
             print("Error signing out: \(error.localizedDescription)")
         }
+        
     }
 }

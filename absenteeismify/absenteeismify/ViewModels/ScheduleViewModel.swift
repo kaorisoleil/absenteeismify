@@ -21,9 +21,9 @@ class ScheduleViewModel: ObservableObject {
     }
     
     func fetchCourses() {
-        let dow = "Thursday"
-       // let dow = getDayOfWeek(from: Date())
-      //  print(dow)
+        //let dow = "Friday"
+      let dow = getDayOfWeek(from: Date())
+      print(dow)
         
         if dow == "Monday"{
             self.todayCourses = self.student.schedule[0]
