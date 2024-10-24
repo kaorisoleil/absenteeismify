@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 struct ScheduleEditView: View {
-    
+    @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var scheduleViewModel: ScheduleViewModel
     @State private var courseName: String = ""
     @State private var teacher: String = ""
     @State private var teacherEmail: String = ""
@@ -16,6 +17,141 @@ struct ScheduleEditView: View {
     
     let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     var body: some View {
+        
+        ScrollView{
+            
+            VStack(spacing: 20){
+                
+                Image(uiImage: UIImage(named: "logo1") ?? UIImage(systemName: "logo1")!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 215, maxHeight: 215)
+                /*
+                HStack{
+                    Spacer()
+                    Image(systemName: "person.crop.circle")
+                        .foregroundColor(Color("lightblue"))
+                        .font(.system(size: 27))
+                  Text("Hello,")
+                       .font(.custom("Avenir", size: 25))
+                       .bold()
+                    .foregroundColor(Color("darkblue"))
+                   Text("\(scheduleViewModel.student.first_name)!")
+                      .font(.custom("Avenir", size: 25))
+                        .bold()
+                    .foregroundColor(Color("lightblue"))
+                    Spacer()
+                 
+                }
+                .padding(.top, 20)
+      .ignoresSafeArea(.keyboard)
+                */
+                
+                Text("Add a Course")
+                    .font(.custom("Avenir", size: 25))
+                            .bold()
+                            .foregroundColor(Color("darkblue"))
+                            .padding(.bottom, 10)
+                
+                VStack(spacing: 20) {
+                                TextField("Course Name", text: $courseName)
+                                    .padding()
+                                    .foregroundColor(Color("darkblue"))
+                                    .font(.custom("Avenir", size: 19))
+                                    .background(Color("lightblue").opacity(0.2))
+                                    .cornerRadius(12)
+                                    .shadow(color: Color("lightblue").opacity(0.3), radius: 5, x: 0, y: 5)
+
+                                TextField("Teacher", text: $teacher)
+                                    .padding()
+                                    .foregroundColor(Color("darkblue"))
+                                    .font(.custom("Avenir", size: 19))
+                                    .background(Color("lightblue").opacity(0.2))
+                                    .cornerRadius(12)
+                                    .shadow(color: Color("lightblue").opacity(0.3), radius: 5, x: 0, y: 5)
+
+                                TextField("Teacher Email", text: $teacherEmail)
+                                    .padding()
+                                    .foregroundColor(Color("darkblue"))
+                                    .font(.custom("Avenir", size: 19))
+                                    .background(Color("lightblue").opacity(0.2))
+                                    .cornerRadius(12)
+                                    .shadow(color: Color("lightblue").opacity(0.3), radius: 5, x: 0, y: 5)
+                            }
+                            .padding(.horizontal)
+                VStack(alignment: .leading, spacing: 15) {
+                                Text("Select Days")
+                        .font(.custom("Avenir", size: 25))
+                        .bold()
+                                  //  .font(.headline)
+                                  //  .font(.custom("Chalkboard SE", size: 28))
+
+                                    .foregroundColor(Color("darkblue"))
+                                    .padding(.bottom, 5)
+
+                                ForEach(0..<daysOfWeek.count, id: \.self) { index in
+                                    Toggle(isOn: $selectedDays[index]) {
+                                        Text(self.daysOfWeek[index])
+                                           // .font(.system(size: 28, weight: .regular, design: .rounded))
+                                            .foregroundColor(Color("darkblue"))
+                                           .font(.custom("Avenir", size: 18))
+                                    }
+                                    .toggleStyle(SwitchToggleStyle(tint: Color("lightb2")))
+                                    .padding(.vertical, 5)
+                                }
+                            }
+                //SF ROUNDED FONT
+                //.font(.system(size: 28, weight: .regular, design: .rounded))
+
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 5)
+                            .padding(.horizontal)
+                            
+                           // Spacer()
+                  // Pushes the button to the bottom
+                    
+                    Button(action: addCourse) {
+                        Image(systemName: "plus")
+                            .font(.system(size: 24))
+                            .bold()
+                            .foregroundColor(Color("lightb2"))
+                            .padding()
+                            .background(Color("darkblue"))
+                            .clipShape(Circle())
+                        
+                    }
+                    .padding(.bottom, 30)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 8, x: 0, y: 5)
+                
+            }
+            .ignoresSafeArea(.keyboard)  // Prevent keyboard from pushing content
+            .padding()
+            
+            /*
+            .padding()
+                    .background(Color("lightb2").opacity(0.1))
+                    .edgesIgnoringSafeArea(.bottom)
+            
+                    .overlay(
+                                Button(action: addCourse) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .resizable()
+                                        .frame(width: 60, height: 60)
+                                        .foregroundColor(Color("darkblue"))
+                                        .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 3)
+                                }
+                                .padding()
+                                .background(Color("lightb2"))
+                                .clipShape(Circle())
+                                .shadow(color: Color("darkblue").opacity(0.3), radius: 10, x: 0, y: 5),
+                                alignment: .bottomTrailing
+                            )
+             */
+        }
+        
+        /*
         VStack(spacing: 20) {
             TextField("Course Name", text: $courseName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -37,18 +173,22 @@ struct ScheduleEditView: View {
                         Text(self.daysOfWeek[index])
                     }
                     .padding(.horizontal)
+                    
                 }
             }
             Button(action: addCourse) {
                 Text("Add Course")
                     .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
+                    .bold()
+                    .background(Color("darkblue"))
+                    .foregroundColor(Color("lightb2"))
+                    .cornerRadius(10)
                     .cornerRadius(10)
             }
             Spacer()
         }
         .padding()
+         */
     }
     
     // Add the course to the selected days in the student's schedule

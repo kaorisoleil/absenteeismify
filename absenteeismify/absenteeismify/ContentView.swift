@@ -26,39 +26,62 @@ struct ContentView: View {
         
         NavigationView{
             if !authViewModel.isSignedIn{
-                VStack
+                VStack(spacing: 20)
                 {
                     Spacer()
                     Image(uiImage: UIImage(named: "logo1") ?? UIImage(systemName: "logo1")!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 250, maxHeight: 250)
+                        .frame(maxWidth: 280, maxHeight: 280)
                    
-                  
-                        
+                    VStack {
                         TextField("First Name", text: $firstName)
-                                       .textFieldStyle(RoundedBorderTextFieldStyle())
-                                       .padding()
+                            .padding()
+                                    .background(Color("lightblue").opacity(0.3)) // Light background for contrast
+                                    .cornerRadius(10)
+                                    .font(.custom("Avenir", size: 16))
+                                   // Custom font size
+                                    .foregroundColor(Color("darkblue")) // Text color
+                                    .padding(.horizontal)
+                                    //   .textFieldStyle(RoundedBorderTextFieldStyle())
+                                     //  .padding()
                         TextField("Last Name", text: $lastName)
-                                       .textFieldStyle(RoundedBorderTextFieldStyle())
-                                       .padding()
+                            .padding()
+                                    .background(Color("lightblue").opacity(0.3)) // Light background for contrast
+                                    .cornerRadius(10)
+                                    .font(.custom("Avenir", size: 16)) // Custom font size
+                                    .foregroundColor(Color("darkblue")) // Text color
+                                    .padding(.horizontal)
                                    
                         TextField("School", text: $school)
-                                       .textFieldStyle(RoundedBorderTextFieldStyle())
-                                       .padding()
+                            .padding()
+                                    .background(Color("lightblue").opacity(0.3)) // Light background for contrast
+                                    .cornerRadius(10)
+                                    .font(.custom("Avenir", size: 16)) // Custom font size
+                                    .foregroundColor(Color("darkblue")) // Text color
+                                    .padding(.horizontal)
+                    }
+                  
+                        
                        
                         Button(action: {
                             saveUserInfo()
                             authViewModel.signInWithGoogle()
                         })
                         {
-                            HStack { Image(systemName: "person.fill")
-                                Text("Sign in with Google") .font(.headline)
+                            HStack { 
+                                Image(systemName: "person.fill")
+                                    .font(.system(size: 20))
+                                Text("Sign in with Google")
+                                    .font(.custom("Avenir", size: 20))
                             }
-                            .frame(width: 280, height: 50)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            //.frame(width: 280, height: 50)
+                            .background(Color("darkblue")) // Button background color
+                                   .foregroundColor(Color("lightb2")) // Button text color
+                                   .cornerRadius(10)
+                                   .padding(.horizontal) // Horizontal padding for button
+                                   .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                             }
                       
                     
@@ -89,6 +112,7 @@ struct ContentView: View {
 
     
 }
+import SwiftUI
 
 struct PresenceCheckView: View {
     @State private var isAbsent = false
@@ -97,7 +121,7 @@ struct PresenceCheckView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Are you here today?")
-                .font(.title)
+                .font(.custom("Avenir", size: 25))
                 .bold()
                 .padding()
 
@@ -108,6 +132,8 @@ struct PresenceCheckView: View {
                 Text("I am Absent")
                     .foregroundColor(.white)
                     .padding()
+                    .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 5)
+                    .font(.custom("Avenir", size: 20))
                     .background(Color.red)
                     .cornerRadius(10)
             }
@@ -119,8 +145,10 @@ struct PresenceCheckView: View {
                 Text("I am Present")
                     .foregroundColor(.white)
                     .padding()
+                    .font(.custom("Avenir", size: 20))
                     .background(Color.green)
                     .cornerRadius(10)
+                    .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 5) 
             }
         }
         .fullScreenCover(isPresented: $showingDetailView) {
@@ -135,6 +163,7 @@ struct PresenceCheckView: View {
 }
 
 
+
 struct DetailView: View {
     var body: some View {
 
@@ -142,26 +171,25 @@ struct DetailView: View {
             ScheduleEditView()
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Add Course")
+                        .foregroundColor(Color("darkblue"))
+                    Text("Home")
             }
             ScheduleView()
                 .tabItem {
-                    Image(systemName: "list.bullet.rectangle")
+                    Image(systemName: "calendar")
+                        .foregroundColor(Color("darkblue"))
                     Text("Schedule")
-                }
-            HomeView()
-                .tabItem {
-                    Image(systemName: "calendar.circle")
-                    Text("Home")
                 }
             MapView()
                 .tabItem {
-                    Image(systemName: "calendar.circle")
+                    Image(systemName: "globe.desk")
+                        .foregroundColor(Color("darkblue"))
                     Text("Resources")
                 }
             ProfileView()
                 .tabItem {
-                    Image(systemName: "calendar.circle")
+                    Image(systemName: "person")
+                        .foregroundColor(Color("darkblue"))
                     Text("Profile")
                 }
         }

@@ -17,12 +17,61 @@ struct ProfileView : View {
     @EnvironmentObject var scheduleViewModel: ScheduleViewModel
     
     var body: some View {
+        
+            VStack(spacing: 20) { 
+                Spacer() // Add spacing between elements
+                ZStack {
+                    Circle()
+                        .fill(Color("lightblue")) // Background circle
+                        .frame(width: 120, height: 120) // Set size for the circle
+                    
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100) // Set size for the profile image
+                        .foregroundColor(Color("darkblue")) // Icon color
+                }
+                
+                Text("\(scheduleViewModel.student.first_name) \(scheduleViewModel.student.last_name)")
+                    .font(.custom("Avenir", size: 26))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("darkblue"))
+                    .padding(.top)
+
+                Text("\(scheduleViewModel.student.school)")
+                    .font(.custom("Avenir", size: 24))
+                    .foregroundColor(Color("darkblue"))
+                    .padding(.bottom)
+                
+                Button(action: { authViewModel.signOut() }) {
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 20)) // Increase icon size
+                        Text("Sign out")
+                            .font(.custom("Avenir", size: 25))
+                            .bold()
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 50) // Full width button
+                    .background(Color("darkblue")) // Button background color
+                    .foregroundColor(Color("lightb2")) // Button text color
+                    .cornerRadius(10)
+                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2) // Add shadow for depth
+                }
+                .padding(.top, 20) // Add spacing above the button
+
+                Spacer() // Push content to the top
+            }
+            .padding() // Overall padding for the VStack
+            //.background(Color("lightb2").edgesIgnoringSafeArea(.all)) // Background color for the view
+        }
+    }
+    
+    /*
+    var body: some View {
         VStack{
             ZStack
             {
-                Circle()
-                    .frame(maxWidth: 100, maxHeight: 100)
-                Image(systemName: "person.fill")
+                Image(systemName: "person.crop.circle")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: 100, maxHeight: 100)
@@ -65,4 +114,4 @@ struct ProfileView : View {
         }
        
     }
-
+*/

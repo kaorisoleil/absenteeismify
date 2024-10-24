@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A43B28F2C5AB7870022EC62 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B28E2C5AB7870022EC62 /* HomeView.swift */; };
 		7A43B2932C5AB96E0022EC62 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B2922C5AB96E0022EC62 /* ProfileView.swift */; };
 		7A43B2952C5AB9930022EC62 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B2942C5AB9930022EC62 /* ScheduleView.swift */; };
 		7A6106112C519628004F7AE9 /* absenteeismifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6106102C519628004F7AE9 /* absenteeismifyApp.swift */; };
@@ -58,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7A43B28E2C5AB7870022EC62 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7A43B2922C5AB96E0022EC62 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7A43B2942C5AB9930022EC62 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		7A61060D2C519628004F7AE9 /* absenteeismify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = absenteeismify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 				7A6106122C519628004F7AE9 /* ContentView.swift */,
 				7A43B2922C5AB96E0022EC62 /* ProfileView.swift */,
 				7A85A5652CC85E9500645461 /* MapView.swift */,
-				7A43B28E2C5AB7870022EC62 /* HomeView.swift */,
 				7A6106142C519628004F7AE9 /* Item.swift */,
 				7A6106162C519629004F7AE9 /* Assets.xcassets */,
 				7A761FF62CB053420009FEED /* logo1.png */,
@@ -356,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A6106132C519628004F7AE9 /* ContentView.swift in Sources */,
-				7A43B28F2C5AB7870022EC62 /* HomeView.swift in Sources */,
 				7A43B2932C5AB96E0022EC62 /* ProfileView.swift in Sources */,
 				7AA8DE772CB2EB590029CCDD /* ScheduleViewModel.swift in Sources */,
 				7A85A5662CC85E9500645461 /* MapView.swift in Sources */,
